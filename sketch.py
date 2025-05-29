@@ -4,7 +4,8 @@ from pathlib import Path
 
 inventory = []
 battle_deck = []
-player2 = Card.random_card()
+user_wallet = 500 #startkapital
+
 
 base_dir = Path(__file__).parent
 cards_path = base_dir / "data" / "cards.json"
@@ -27,10 +28,15 @@ def collecting():
     else:
         print(f"You drew {collected_card.name}. (Rarity: {collected_card.rarity})")
 
-# too lazy to write collection() n times lmao
 
-for _ in range(5):
-    collecting()
+#----------------buying packs---------------------------------------
+
+
+
+ 
+#simulation für collecting
+#for _ in range(5):
+#    collecting()
 
 print()
 
@@ -130,3 +136,4 @@ def compare_cards():
 draw_card()
 compare_cards()
 
+#TODO pro tag 50 geld + pro gewinn + 5 gold 
