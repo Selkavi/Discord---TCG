@@ -1,23 +1,17 @@
 import os
 import discord
 from discord.ext import commands
-from discord import app_commands
 from db import init_db
 
-intents = discord.Intents.default()
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.default())
 
 @bot.event
 async def on_ready():
     await init_db()
-    print(f"Bot eingeloggt als {bot.user} (ID: {bot.user.id})")
-    try:
-        synced = await bot.tree.sync()
-        print(f"Slash-Commands synchronisiert: {len(synced)}")
-    except Exception as e:
-        print(f"Sync-Fehler: {e}")
+    await bot.tree.sync()
+    print("Ready")
 
-for fname in ["draw", "battle", "inventory", "trade"]:
-    bot.load_extension(f"cogs.{fname}")
+for cog in ["draw","battle","inventory","trade"]:
+    bot.load_extension(f"cogs.{cog}")
 
 bot.run(os.getenv("DISCORD_TOKEN"))

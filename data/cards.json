@@ -1,0 +1,6 @@
+[
+  { "id":"c001","name":"Kleine Schildkröte","rarity":"Common","value":3 },
+  { "id":"r001","name":"Feuerdrache","rarity":"Rare","value":7 },
+  { "id":"e001","name":"Phönix","rarity":"Epic","value":10 }
+]
+
